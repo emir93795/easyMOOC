@@ -27,10 +27,10 @@ function option_picked() {
 function ansibleInstallation(){
     if [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "ok installed") -eq 0 ];
     then
-        yum install -y git;
+        sudo yum install -y git;
     fi
-    rpm -ivh --force http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-    yum install -y ansible
+    sudo rpm -ivh --force http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+    sudo yum install -y ansible
 }
 clear
 menu
