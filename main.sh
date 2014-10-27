@@ -8,8 +8,9 @@ menu(){
     ENTER_LINE=`echo "\033[33m"`
     echo -e "${MENU}*********************************************${NORMAL}"
     echo -e "${MENU}**${NUMBER} 1)${MENU} Execute and configure ansible directly in my computer ${NORMAL}"
+    echo -e "${MENU}*                                           *${NORMAL}"
     echo -e "${MENU}**${NUMBER} 2)${MENU} Create an amazon EC2 instance and configure ansible within ${NORMAL}"
-    echo -e "${MENU}**${NUMBER} 5)${MENU} ${NORMAL}"
+    echo -e "${MENU}*                                           *${NORMAL}"
     echo -e "${MENU}*********************************************${NORMAL}"
     echo -e "${ENTER_LINE}Please enter a menu option and enter or ${RED_TEXT}enter to exit. ${NORMAL}"
     read opt
@@ -20,9 +21,8 @@ function option_picked() {
     MESSAGE=${@:-"${RESET}Error: No message passed"}
     echo -e "${COLOR}${MESSAGE}${RESET}"
 }
-
 clear
-show_menu
+menu
 while [ opt != '' ]
     do
     if [[ $opt = "" ]]; then 
@@ -47,7 +47,7 @@ while [ opt != '' ]
 
         *)clear;
         option_picked "Pick an option from the menu";
-        show_menu;
+        menu;
         ;;
     esac
 fi
