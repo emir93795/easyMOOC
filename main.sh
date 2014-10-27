@@ -42,7 +42,7 @@ while [ opt != '' ]
         case $opt in
         1) clear;
         option_picked "Beginning work...";
-        ansibleInstallation();
+        ansibleInstallation
         
         menu;
         ;;
