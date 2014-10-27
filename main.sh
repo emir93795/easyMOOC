@@ -9,8 +9,8 @@ select opt in "${options[@]}" "Quit"; do
   
     case "$REPLY" in
     
-    1 ) echo "You picked $opt"
-    2 ) echo "You picked $opt"
+    1 ) echo "You picked $opt";;
+    2 ) echo "You picked $opt";;
     
     $(( ${#options[@]}+1 )) ) echo "Goodbye!"; break;;
     *) echo "Invalid option. Try another one.";continue;;
