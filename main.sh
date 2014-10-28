@@ -38,6 +38,7 @@ menu3(){
     echo -e "${MENU}**Please, select architecture to use on MOOC:**${NORMAL}"
     echo -e "${MENU}*                                           *${NORMAL}"
     echo -e "${MENU}**${NUMBER} 1)${MENU} Simple MOOC (All-in-one instance) **${NORMAL}"
+    echo -e "${MENU}*                       New Instance        *${NORMAL}"
     echo -e "${MENU}*                       No separated DB     *${NORMAL}"
     echo -e "${MENU}*                       No Load Balancers   *${NORMAL}"
     echo -e "${MENU}*                                           *${NORMAL}"
@@ -74,6 +75,44 @@ function ansibleInstallation(){
         echo -e "${RED_TEXT}Ansible was not correctly installed.${NORMAL}"
     fi
 }
+function instanceParameters(){
+    echo "Press [ENTER] to leave default values."
+    echo "Please, specify the zone where the instance will be created: (Ex.: sa-east-1a)"
+    read zone
+    if [ "$zone" != "" ]; then
+        sed -i "s/sa-east-1a/$zone/g" create_ec2_Instance.yml
+    fi
+    echo "Specify an specific AMI id [Default is Amazon Linux ami || ami-8737829a]:"
+    read zone
+    if [ "$zone" != "" ]; then
+        sed -i "s/ami-8737829a/$zone/g" create_ec2_Instance.yml
+    fi 
+    echo "Define the instance_type you want [Default is t2.micro]:"
+    read zone
+    if [ "$zone" != "" ]; then
+        sed -i "s/t2.micro/$zone/g" create_ec2_Instance.yml
+    fi 
+    echo "Define the key name that will be used to connect to instance:"
+    read zone
+    if [ "$zone" != "" ]; then
+        sed -i "s/AmazonKeyValue/$zone/g" create_ec2_Instance.yml
+    fi 
+    echo "Define the subnet id: (Ex.: subnet-03833a66)"
+    read zone
+    if [ "$zone" != "" ]; then
+        sed -i "s/vpc-e4921349/$zone/g" create_ec2_Instance.yml
+    fi
+    echo "Define the security group: (Ex.: sg-aaaa222)"
+    read zone
+    if [ "$zone" != "" ]; then
+        sed -i "s/sg-aaaaa2222/$zone/g" create_ec2_Instance.yml
+    fi
+    echo "Define the instance tag: (Ex.: MOOCAnsible)"
+    read zone
+    if [ "$zone" != "" ]; then
+        sed -i "s/FirstMOOCAnsible/$zone/g" create_ec2_Instance.yml
+    fi
+}
 function infrastructureSelection(){
     menu3
         while [ opt != '' ]
@@ -84,6 +123,13 @@ function infrastructureSelection(){
                 case $opt in
                 1) clear;
                 option_picked "Let's go!...";
+                #Call function to define parameters
+                instanceParameters
+                sudo mv create_ec2_Instance.yml /etc/ansible/create_ec2_Instance.yml
+                cd /etc/ansible
+                sudo rm -r hosts
+                sudo sh -c 'echo "127.0.0.1" >> hosts'
+                ansible-playbook create_ec2_Instance.yml
                 ;;
                 2) clear;
                 option_picked "Option 2 Picked";
