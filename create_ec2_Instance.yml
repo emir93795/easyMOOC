@@ -1,0 +1,18 @@
+---
+- hosts: all
+  connection: local
+
+  tasks:
+  - name: create ec2 instance
+    action: 
+      module: ec2 
+      zone: sa-east-1a
+      image: ami-a1b2c3d4
+      instance_type: t1.micro
+      state: present
+      region: sa-east-1
+      key_name: AmazonKeyValue
+      subnet: subnet-abc1234
+      group: sg-aaaaa2222
+      instance_tags: 
+        Name: FirstMOOCAnsible
