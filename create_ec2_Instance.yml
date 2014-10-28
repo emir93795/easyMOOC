@@ -8,7 +8,7 @@
       module: ec2 
       zone: sa-east-1a
       image: ami-8737829a
-      instance_type: t1.micro
+      instance_type: t2.micro
       state: present
       region: sa-east-1
       key_name: AmazonKeyValue
