@@ -43,8 +43,12 @@ function option_picked() {
 
 #Function that installs ansible
 function ansibleInstallation(){
-    sudo rpm -ivh --force http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-    sudo yum install -y ansible
+    if yum list installed ansible >/dev/null 2>&1; then
+        echo -e "${NUMBER}Ansible is already installed.${NORMAL}"
+    else
+        sudo rpm -ivh --force http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+        sudo yum install -y ansible
+    fi
     #Check if ansible is correctly installed
     if yum list installed ansible >/dev/null 2>&1; then
         echo -e "${NUMBER}Ansible was correctly installed.${NORMAL}"
