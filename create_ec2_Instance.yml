@@ -7,7 +7,7 @@
     action: 
       module: ec2 
       zone: sa-east-1a
-      image: ami-a1b2c3d4
+      image: ami-8737829a
       instance_type: t1.micro
       state: present
       region: sa-east-1
