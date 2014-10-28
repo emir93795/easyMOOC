@@ -16,7 +16,7 @@ menu(){
     echo -e "${MENU}**${NUMBER}${MENU} (Having an amazon account and a key to acces the instance is strictly necessari!) **${NORMAL}"
     echo -e "${MENU}*                                           *${NORMAL}"
     echo -e "${MENU}*********************************************${NORMAL}"
-    echo -e "${ENTER_LINE}Please enter a menu option and enter or ${RED_TEXT}enter to exit. ${NORMAL}"
+    echo -e "${ENTER_LINE}Please enter a menu option and enter OR ${RED_TEXT} press enter to exit. ${NORMAL}"
     read opt
 }
 menu2(){
@@ -30,7 +30,25 @@ menu2(){
     echo -e "${MENU}**${NUMBER} 3)${MENU} Install edX **${NORMAL}"   
     echo -e "${MENU}*                                           *${NORMAL}"
     echo -e "${MENU}*********************************************${NORMAL}"
-    echo -e "${ENTER_LINE}Please enter a menu option and enter or ${RED_TEXT}enter to exit. ${NORMAL}"
+    echo -e "${ENTER_LINE}Please enter a menu option and enter OR ${RED_TEXT} press enter to exit. ${NORMAL}"
+    read opt
+}
+menu3(){
+    echo -e "${MENU}*********************************************${NORMAL}"
+    echo -e "${MENU}**Please, select architecture to use on MOOC:**${NORMAL}"
+    echo -e "${MENU}*                                           *${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 1)${MENU} Simple MOOC (All-in-one instance) **${NORMAL}"
+    echo -e "${MENU}*                       No separated DB     *${NORMAL}"
+    echo -e "${MENU}*                       No Load Balancers   *${NORMAL}"
+    echo -e "${MENU}*                                           *${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 2)${MENU} Modular MOOC **${NORMAL}"
+    echo -e "${MENU}*                       Separated DB (Amazon RDS)*${NORMAL}"
+    echo -e "${MENU}*                       Load Balancer       *${NORMAL}"
+    echo -e "${MENU}*                                           *${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 3)${MENU} Custom MOOC **${NORMAL}"   
+    echo -e "${MENU}*                                           *${NORMAL}"
+    echo -e "${MENU}*********************************************${NORMAL}"
+    echo -e "${ENTER_LINE}Please enter a menu option and enter OR ${RED_TEXT} press enter to exit. ${NORMAL}"
     read opt
 }
 
@@ -56,6 +74,36 @@ function ansibleInstallation(){
         echo -e "${RED_TEXT}Ansible was not correctly installed.${NORMAL}"
     fi
 }
+function menu3IT(){
+    menu3
+        while [ opt != '' ]
+            do
+            if [[ $opt = "" ]]; then 
+                exit;
+            else
+                case $opt in
+                1) clear;
+                option_picked "Let's go!...";
+                ;;
+                2) clear;
+                option_picked "Option 2 Picked";
+                ;;
+                3) clear;
+                option_picked "Option 2 Picked";
+                ;;
+                x)exit;
+                ;;
+                \n)exit;
+                ;;
+                *)clear;
+                option_picked "Pick an option from the menu";
+                menu2;
+                ;;
+                esac
+            fi 
+        done
+        ;;
+}
 
  #Funtion that installs moodle using ansible
 #Beginning menu
@@ -78,7 +126,8 @@ while [ opt != '' ]
             else
                 case $opt in
                 1) clear;
-                option_picked "Let's go!";
+                option_picked "Let's go!...";
+                menu3IT
                 ;;
                 2) clear;
                 option_picked "Option 2 Picked";
