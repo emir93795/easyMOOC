@@ -134,6 +134,7 @@ function infrastructureSelection(){
                 instanceParameters
                 sudo mv create_ec2_Instance.yml /etc/ansible/create_ec2_Instance.yml
                 sudo mv LAMPMoodlePlaybook.yml /etc/ansible/LAMPMoodlePlaybook.yml
+                sudo mv LAMPMoodleScript.sh /etc/ansible/LAMPMoodleScript.sh
                 cd /etc/ansible
                 sudo rm -r hosts
                 sudo sh -c 'echo "127.0.0.1" >> hosts'
