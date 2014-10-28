@@ -1,7 +1,12 @@
 ---
-- hosts: all
+- name: Transfer and execute a script
+  hosts: all
+  user: root
+  sudo: yes
   connection: local
   
   tasks:
-  - name: Install Moodle
-    script: LAMPMoodleScript.sh
+  - name: Transfer the script
+    src: LAMPMoodleScript.sh dest=/home/LAMPScript mode=0777
+  - name: Execute the script
+    command: sh /home/LAMPScript/LAMPMoodleScript.sh
