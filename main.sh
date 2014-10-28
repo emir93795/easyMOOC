@@ -159,7 +159,6 @@ function infrastructureSelection(){
                 esac
             fi 
         done
-        ;;
 }
 
  #Funtion that installs moodle using ansible
