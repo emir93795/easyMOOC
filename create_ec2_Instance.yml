@@ -12,7 +12,7 @@
       state: present
       region: sa-east-1
       key_name: AmazonKeyValue
-      subnet: subnet-abc1234
+      vpc_subnet_id: vpc-e4921349
       group: sg-aaaaa2222
       instance_tags: 
         Name: FirstMOOCAnsible
