@@ -75,6 +75,8 @@ function ansibleInstallation(){
         echo -e "${RED_TEXT}Ansible was not correctly installed.${NORMAL}"
     fi
 }
+
+#Function that fills create_ec2_Instance.yml file
 function instanceParameters(){
     echo "Press [ENTER] to leave default values."
     echo "Please, specify the zone where the instance will be created: (Ex.: sa-east-1a)"
@@ -91,6 +93,11 @@ function instanceParameters(){
     read zone
     if [ "$zone" != "" ]; then
         sed -i "s/t2.micro/$zone/g" create_ec2_Instance.yml
+    fi 
+    echo "Define the region (Ex.: sa-east-1):"
+    read zone
+    if [ "$zone" != "" ]; then
+        sed -i "s/sa-east-1/$zone/g" create_ec2_Instance.yml
     fi 
     echo "Define the key name that will be used to connect to instance:"
     read zone
@@ -129,7 +136,11 @@ function infrastructureSelection(){
                 cd /etc/ansible
                 sudo rm -r hosts
                 sudo sh -c 'echo "127.0.0.1" >> hosts'
+                #Creating instance
                 ansible-playbook create_ec2_Instance.yml
+                #Installing LAMP environment
+                ansible-playbook LAMPMoodlePlaybook.yml
+                
                 ;;
                 2) clear;
                 option_picked "Option 2 Picked";
