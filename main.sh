@@ -74,7 +74,7 @@ function ansibleInstallation(){
         echo -e "${RED_TEXT}Ansible was not correctly installed.${NORMAL}"
     fi
 }
-function menu3IT(){
+function infrastructureSelection(){
     menu3
         while [ opt != '' ]
             do
@@ -127,7 +127,7 @@ while [ opt != '' ]
                 case $opt in
                 1) clear;
                 option_picked "Let's go!...";
-                menu3IT
+                infrastructureSelection
                 ;;
                 2) clear;
                 option_picked "Option 2 Picked";
