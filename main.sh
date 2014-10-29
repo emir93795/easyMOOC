@@ -79,12 +79,12 @@ function ansibleInstallation(){
 
 #Function to set amazon keys environment values
 function environmentValues(){
-    echo "${MENU}Please, specify the amazon access key id:${NORMAL}"
+    echo -e "${MENU}Please, specify the amazon access key id:${NORMAL}"
     read zone
     if [ "$zone" != "" ]; then
         export AWS_ACCESS_KEY=$zone
     fi
-    echo "${MENU}Please, specify the amazon secret key:${NORMAL}"
+    echo -e "${MENU}Please, specify the amazon secret key:${NORMAL}"
     read zone
     if [ "$zone" != "" ]; then
         export AWS_SECRET_KEY=$zone
@@ -93,43 +93,43 @@ function environmentValues(){
 
 #Function that fills create_ec2_Instance.yml file
 function instanceParameters(){
-    echo "${NUMBER}Press [ENTER] to leave default values.${NORMAL}"
-    echo "${NUMBER}Please, specify the zone where the instance will be created: (Ex.: sa-east-1a)${NORMAL}"
+    echo -e "${NUMBER}Press [ENTER] to leave default values.${NORMAL}"
+    echo -e "${NUMBER}Please, specify the zone where the instance will be created: (Ex.: sa-east-1a)${NORMAL}"
     read zone
     if [ "$zone" != "" ]; then
         sed -i "s/sa-east-1a/$zone/g" create_ec2_Instance.yml
     fi
-    echo "${NUMBER}Specify an specific AMI id [Default is Amazon Linux ami || ami-8737829a]:${NORMAL}"
+    echo -e "${NUMBER}Specify an specific AMI id [Default is Amazon Linux ami || ami-8737829a]:${NORMAL}"
     read zone
     if [ "$zone" != "" ]; then
         sed -i "s/ami-8737829a/$zone/g" create_ec2_Instance.yml
     fi 
-    echo "${NUMBER}Define the instance_type you want [Default is t2.micro]:${NORMAL}"
+    echo -e "${NUMBER}Define the instance_type you want [Default is t2.micro]:${NORMAL}"
     read zone
     if [ "$zone" != "" ]; then
         sed -i "s/t2.micro/$zone/g" create_ec2_Instance.yml
     fi 
-    echo "${NUMBER}Define the region (Ex.: sa-east-1):${NORMAL}"
+    echo -e "${NUMBER}Define the region (Ex.: sa-east-1):${NORMAL}"
     read zone
     if [ "$zone" != "" ]; then
         sed -i "s/sa-east-1/$zone/g" create_ec2_Instance.yml
     fi 
-    echo "${NUMBER}Define the key name that will be used to connect to instance:${NORMAL}"
+    echo -e "${NUMBER}Define the key name that will be used to connect to instance:${NORMAL}"
     read zone
     if [ "$zone" != "" ]; then
         sed -i "s/AmazonKeyValue/$zone/g" create_ec2_Instance.yml
     fi 
-    echo "${NUMBER}Define the subnet id: (Ex.: subnet-03833a66)${NORMAL}"
+    echo -e "${NUMBER}Define the subnet id: (Ex.: subnet-03833a66)${NORMAL}"
     read zone
     if [ "$zone" != "" ]; then
         sed -i "s/vpc-e4921349/$zone/g" create_ec2_Instance.yml
     fi
-    echo "${NUMBER}Define the security group: (Ex.: sg-aaaa222)${NORMAL}"
+    echo -e "${NUMBER}Define the security group: (Ex.: sg-aaaa222)${NORMAL}"
     read zone
     if [ "$zone" != "" ]; then
         sed -i "s/sg-aaaaa2222/$zone/g" create_ec2_Instance.yml
     fi
-    echo "${NUMBER}Define the instance tag: (Ex.: MOOCAnsible)${NORMAL}"
+    echo -e "${NUMBER}Define the instance tag: (Ex.: MOOCAnsible)${NORMAL}"
     read zone
     if [ "$zone" != "" ]; then
         sed -i "s/FirstMOOCAnsible/$zone/g" create_ec2_Instance.yml
