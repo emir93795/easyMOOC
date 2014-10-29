@@ -5,7 +5,9 @@
   tasks:
   - name: create ec2 instance
     action: 
-      module: ec2 
+      module: ec2
+      aws_access_key: utong
+      aws_secret_key: utong2
       zone: sa-east-1a
       image: ami-8737829a
       instance_type: t2.micro
