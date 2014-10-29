@@ -80,16 +80,6 @@ function ansibleInstallation(){
 #Function that fills create_ec2_Instance.yml file
 function instanceParameters(){
     echo "Press [ENTER] to leave default values."
-    echo "Please, specify the aws access key: (Ex.: DFAD4D4456ZCZCVDFWEF)"
-    read zone
-    if [ "$zone" != "" ]; then
-        sed -i "s/utong/$zone/g" create_ec2_Instance.yml
-    fi
-    echo "Please, specify the aws secret key: (Ex.: adfADFLAKJ8797//adkfjjeipqdkDFQQEDJAH"
-    read zone
-    if [ "$zone" != "" ]; then
-        sed -i "s/utong2/_$zone_/g" create_ec2_Instance.yml
-    fi
     echo "Please, specify the zone where the instance will be created: (Ex.: sa-east-1a)"
     read zone
     if [ "$zone" != "" ]; then
