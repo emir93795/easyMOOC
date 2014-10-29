@@ -67,13 +67,14 @@ function ansibleInstallation(){
     else
         sudo rpm -ivh --force http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
         sudo yum install -y ansible
+        #Check if ansible is correctly installed
+        if yum list installed ansible >/dev/null 2>&1; then
+            echo -e "${NUMBER}Ansible was correctly installed.${NORMAL}"
+        else   
+            echo -e "${RED_TEXT}Ansible was not correctly installed.${NORMAL}"
+        fi
     fi
-    #Check if ansible is correctly installed
-    if yum list installed ansible >/dev/null 2>&1; then
-        echo -e "${NUMBER}Ansible was correctly installed.${NORMAL}"
-    else   
-        echo -e "${RED_TEXT}Ansible was not correctly installed.${NORMAL}"
-    fi
+    
 }
 
 #Function that fills create_ec2_Instance.yml file
