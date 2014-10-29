@@ -9,13 +9,13 @@
     ENTER_LINE=`echo "\033[33m"`
     
 menu(){
-    echo -e "${MENU}**********************************************************************${NORMAL}"
-    echo -e "${MENU}**${NUMBER} 1)${MENU} Execute and configure ansible directly in my computer **${NORMAL}"
-    echo -e "${MENU}*                                           *${NORMAL}"
+    echo -e "${MENU}*******************************************************************${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 1)${MENU} Execute and configure ansible directly in my computer      **${NORMAL}"
+    echo -e "${MENU}*                                                                 *${NORMAL}"
     echo -e "${MENU}**${NUMBER} 2)${MENU} Create an amazon EC2 instance and configure ansible within **${NORMAL}"
-    echo -e "${MENU}**${NUMBER}${MENU} (Having an amazon account and a key to acces the instance is strictly necessari!) **${NORMAL}"
-    echo -e "${MENU}*                                           *${NORMAL}"
-    echo -e "${MENU}*********************************************${NORMAL}"
+    echo -e "${MENU}**${NUMBER}${MENU} (You must have an Amazon Key!)           **${NORMAL}"
+    echo -e "${MENU}*                                                                 *${NORMAL}"
+    echo -e "${MENU}*******************************************************************${NORMAL}"
     echo -e "${ENTER_LINE}Please enter a menu option and enter OR ${RED_TEXT} press enter to exit. ${NORMAL}"
     read opt
 }
