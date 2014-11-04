@@ -74,6 +74,8 @@ npm install node-sass
 npm install js-yaml
 npm install lodash
 npm install autoprefixer
+npm install
+
 
 #file generation
 bundle exec rake canvas:compile_assets
