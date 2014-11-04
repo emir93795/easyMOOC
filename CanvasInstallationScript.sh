@@ -1,5 +1,6 @@
 #!/bin/bash
-#canvasInstallV2. ATT!! This will only work in Amazon Linux AMI 2014.09.1 (HVM)
+#canvasInstallV2. ATT!! This will only work in Amazon Linux AMI 2014.09.1 (HVM). 
+#IT IS NOT COMPLETELY AUTOMATED BY NOW.
 yum update -y
 
 yum install -y gcc zlib-devel mysql-devel httpd openssl-devel gcc-c++ curl-devel
