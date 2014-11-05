@@ -9,6 +9,7 @@
       name: MoodleSecurityGroup
       description: Access MoodleSecurityGroup
       region: sa-east-1
+      vpc_id: vpc-e4962981
       rules:
         - proto: tcp
           from_port: 22
