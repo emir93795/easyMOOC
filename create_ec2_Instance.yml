@@ -13,6 +13,6 @@
       region: sa-east-1
       key_name: AmazonKeyValue
       vpc_subnet_id: vpc-e4921349
-      group: sg-aaaaa2222
+      group_id: sg-aaaaa2222
       instance_tags: 
         Name: Moodle
