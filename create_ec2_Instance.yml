@@ -7,7 +7,7 @@
     local_action:
       module: ec2_group
       name: MoodleSecurityGroup
-      description: MoodleSecurityGroup
+      description: MyMoodleSecurityGroup
       region: sa-east-1
       vpc_id: vpc-e4962981
       rules:
