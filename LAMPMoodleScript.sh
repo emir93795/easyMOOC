@@ -12,7 +12,6 @@ service mysqld start
 chkconfig mysqld on
 
 #EditingUserPermissionAndGroups
-groupadd www
 usermod -a -G www ec2-user
 chown -R root:www /var/www
 chmod 2775 /var/www
