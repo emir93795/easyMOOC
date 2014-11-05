@@ -129,11 +129,8 @@ function instanceParameters(){
     if [ "$zone" != "" ]; then
         sed -i "s/sg-aaaaa2222/$zone/g" create_ec2_Instance.yml
     fi
-    echo -e "${NUMBER}Define the instance tag: (Ex.: MOOCAnsible)${NORMAL}"
-    read zone
-    if [ "$zone" != "" ]; then
-        sed -i "s/FirstMOOCAnsible/$zone/g" create_ec2_Instance.yml
-    fi
+    echo -e "${NUMBER}Instance tag will be 'Moodle'. ${NORMAL}"
+    
 }
 function infrastructureSelection(){
     menu3
