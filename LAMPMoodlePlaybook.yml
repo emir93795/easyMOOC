@@ -1,9 +1,8 @@
 ---
 - name: Transfer and execute a script
-  hosts: all
+  hosts: NewMoodleServer
   user: ec2-user
   sudo: yes
-  connection: local
   
   tasks:
   - name: Transfer and execute the script
