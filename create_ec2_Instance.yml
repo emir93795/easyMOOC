@@ -15,4 +15,4 @@
       vpc_subnet_id: vpc-e4921349
       group: sg-aaaaa2222
       instance_tags: 
-        Name: FirstMOOCAnsible
+        Name: Moodle
