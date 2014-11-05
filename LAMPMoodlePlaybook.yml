@@ -1,6 +1,6 @@
 ---
 - name: Transfer and execute a script
-  hosts: NewMoodleServer
+  hosts: MoodleSecurityGroup
   user: ec2-user
   sudo: yes
   
