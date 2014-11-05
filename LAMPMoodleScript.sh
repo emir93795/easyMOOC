@@ -4,6 +4,7 @@ yum update -y
 
 #InstallingBasicPackages
 yum install -y php55.x86_64 mysql55-server.x86_64 php55-mysqlnd.x86_64 php55-mysqlnd.x86_64 unzip  php55-gd.x86_64 
+yum install -y git
 
 #ApacheHttpAndMySQLServicesStart
 service httpd start
@@ -40,10 +41,8 @@ chown -R apache /var/www/html/moodle
 
 #CreatingMoodleDataBase
 cd html/moodle
-wget  --no-check-certificate https://github.com/emir93795/LTISetUp/archive/master.zip
-unzip master.zip
-rm -f master.zip
-cd LTISetUp-master
+git clone git://github.com/emir93795/easyMOOC
+cd easyMOOC
 mysql < MoodleDatabaseCreation.sql
 
 #Getting instance public IP
