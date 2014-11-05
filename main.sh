@@ -124,11 +124,6 @@ function instanceParameters(){
     if [ "$zone" != "" ]; then
         sed -i "s/vpc-e4921349/$zone/g" create_ec2_Instance.yml
     fi
-    echo -e "${NUMBER}Define the security group: (Ex.: sg-aaaa222)${NORMAL}"
-    read zone
-    if [ "$zone" != "" ]; then
-        sed -i "s/sg-aaaaa2222/$zone/g" create_ec2_Instance.yml
-    fi
     echo -e "${NUMBER}Instance tag will be 'Moodle'. ${NORMAL}"
     
 }
