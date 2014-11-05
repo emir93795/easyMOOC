@@ -35,13 +35,19 @@
       key_name: AmazonKeyValue
       vpc_subnet_id: vpc-e4921349
       group: MoodleSecurityGroup
-      instance_tags: 
-        Name: Moodle
+      wait: yes
     register: ec2
     
   - name: Add instances to host group
     local_action: add_host hostname= groupname=MoodleSecurityGroup
+    with_items: ec2.instance
+    
+  - name: Tag instances
+    local_action: ec2_tag resource= region=sa-east-1 state=present
     with_items: ec2.instances
+    args:
+      tags:
+        Name: Moodle
     
   - name: Give everyone one minute
     pause: minutes=1
