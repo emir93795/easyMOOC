@@ -8,7 +8,7 @@
       module: ec2_group
       name: MoodleSecurityGroup
       description: Access MoodleSecurityGroup
-      region: sa-east-1a
+      region: sa-east-1
       rules:
         - proto: tcp
           from_port: 22
