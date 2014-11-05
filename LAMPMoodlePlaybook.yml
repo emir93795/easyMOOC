@@ -1,7 +1,7 @@
 ---
 - name: Transfer and execute a script
   hosts: all
-  user: root
+  user: ec2-user
   sudo: yes
   connection: local
   
