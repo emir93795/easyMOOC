@@ -3,6 +3,25 @@
   connection: local
 
   tasks:
+  - name: Create security group
+    local_action:
+      module: ec2_group
+      name: MoodleSecurityGroup
+      description: Access MoodleSecurityGroup
+      region: sa-east-1a
+      rules:
+        - proto: tcp
+          from_port: 22
+          to_port: 22
+          cidr_ip: 0.0.0.0/0
+        - proto: tcp
+          from_port: 80
+          to_port: 80
+          cidr_ip: 0.0.0.0/0
+        - proto: tcp
+          from_port: 443
+          to_port: 443
+          cidr_ip: 0.0.0.0/0
   - name: create ec2 instance
     action: 
       module: ec2
@@ -13,6 +32,11 @@
       region: sa-east-1
       key_name: AmazonKeyValue
       vpc_subnet_id: vpc-e4921349
-      group_id: sg-aaaaa2222
+      group: MoodleSecurityGroup
       instance_tags: 
         Name: Moodle
+    register: ec2
+    
+   - name: Add instances to host group
+      local_action: add_host hostname= groupname=MoodleSecurityGroup
+      with_items: ec2.instances
