@@ -22,6 +22,7 @@
           from_port: 443
           to_port: 443
           cidr_ip: 0.0.0.0/0
+          
   - name: create ec2 instance
     action: 
       module: ec2
@@ -37,6 +38,9 @@
         Name: Moodle
     register: ec2
     
-   - name: Add instances to host group
-      local_action: add_host hostname= groupname=MoodleSecurityGroup
-      with_items: ec2.instances
+  - name: Add instances to host group
+    local_action: add_host hostname= groupname=MoodleSecurityGroup
+    with_items: ec2.instances
+    
+  - name: Give everyone one minute
+    pause: minutes=1
