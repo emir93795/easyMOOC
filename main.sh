@@ -157,8 +157,8 @@ function infrastructureSelection(){
                 sudo rm -r hosts
                 sudo sh -c 'echo "[NewMoodleServer]
                                    Moodle" >> hosts'
-                
-                #######################################################PROBLEMA CAL CANVIAR EL HOST OBJECTIU!!!!
+                echo 'Working........'
+                sleep 10s
                 #Installing LAMP environment
                 ansible-playbook LAMPMoodlePlaybook.yml
                 
