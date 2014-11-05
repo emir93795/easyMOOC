@@ -39,11 +39,11 @@
     register: ec2
     
   - name: Add instances to host group
-    local_action: add_host hostname= {{ item.public_ip }} groupname=MoodleSecurityGroup
+    local_action: add_host hostname= {{ item[0].public_ip }} groupname=MoodleSecurityGroup
     with_items: ec2.instance
     
   - name: Add tag to instances
-    local_action: ec2_tag resource= {{ item.id }} region=sa-east-1 state=present
+    local_action: ec2_tag resource= {{ item[0].id }} region=sa-east-1 state=present
     with_items: ec2.instance
     args:
       tags:
