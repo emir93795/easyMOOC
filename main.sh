@@ -149,11 +149,11 @@ function infrastructureSelection(){
                 sudo sh -c 'echo "127.0.0.1" >> hosts'
                 #Creating instance
                 ansible-playbook create_ec2_Instance.yml
-                sudo rm -r hosts
-                sudo sh -c 'echo "[NewMoodleServer]
-                                   Moodle" >> hosts'
+                #sudo rm -r hosts
+                #sudo sh -c 'echo "[NewMoodleServer]
+                #                   Moodle" >> hosts'
                 echo 'Working........'
-                sleep 10s
+                sleep 5s
                 #Installing LAMP environment
                 ansible-playbook LAMPMoodlePlaybook.yml
                 
