@@ -75,6 +75,12 @@ function ansibleInstallation(){
         fi
     fi
     
+    echo -e "${RED_TEXT}Please remember that you need to have your SSH keys configured, \nbefore you proceed with the process.${NORMAL}"
+    echo -e "${MENU}You can configure your keys using:${NORMAL}"
+    echo -e "${NUMBER}    ssh-agent bash}"
+    echo -e "${NUMBER}   ssh-add pathTOyourKey/keyName.pem}"
+    echo -e "${RED_TEXT}(The key must have special permissions (400 or 600), use chmod for that.${NORMAL}"
+    
 }
 
 #Function to set amazon keys environment values
