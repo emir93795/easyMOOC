@@ -160,9 +160,6 @@ function infrastructureSelection(){
                 #                   Moodle" >> hosts'
                 echo 'Working........'
                 sleep 5s
-                cd
-                exec /usr/bin/ssh-agent $SHELL
-                cd easyMOOC
                 #Installing LAMP environment
                 ansible-playbook LAMPMoodlePlaybook.yml
                 echo -e "${RED_TEXT}All tasks are done. Wait a minute before accessing the server (let moodle be installed).${NORMAL}"
