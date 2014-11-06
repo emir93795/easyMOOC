@@ -51,5 +51,5 @@ publicIp=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
 
 #InstallingMoodle
 cd /var/www/html/moodle
-sudo -u apache /usr/bin/php admin/cli/install.php --non-interactive --agree-license --wwwroot=http://$publicIp/moodle/ --dataroot=/var/www/moodledata --dbtype=mysqli --dbuser=moodle --dbpass=secretpassword --fullname=Moodle --shortname=Mood --adminpass=secretpassword
+sudo -u apache /usr/bin/php admin/cli/install.php --non-interactive --agree-license --wwwroot=http://$publicIp/ --dataroot=/var/www/moodledata --dbtype=mysqli --dbuser=moodle --dbpass=secretpassword --fullname=Moodle --shortname=Mood --adminpass=secretpassword
 
