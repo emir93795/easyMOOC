@@ -63,22 +63,22 @@ function option_picked() {
 #Function that installs ansible
 function ansibleInstallation(){
     if yum list installed ansible >/dev/null 2>&1; then
-        echo -e "${NUMBER}Ansible is already installed.${NORMAL}"
+        echo -e "${NUMBER}Ansible is already installed.\n${NORMAL}"
     else
         sudo rpm -ivh --force http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
         sudo yum install -y ansible
         #Check if ansible is correctly installed
         if yum list installed ansible >/dev/null 2>&1; then
-            echo -e "${NUMBER}Ansible was correctly installed.${NORMAL}"
+            echo -e "${NUMBER}Ansible was correctly installed.\n${NORMAL}"
         else   
-            echo -e "${RED_TEXT}Ansible was not correctly installed.${NORMAL}"
+            echo -e "${RED_TEXT}Ansible was not correctly installed.\n${NORMAL}"
         fi
     fi
     
-    echo -e "${RED_TEXT}Please remember that you need to have your SSH keys configured, \nbefore you proceed with the process.${NORMAL}"
+    echo -e "${RED_TEXT}Please remember that you need to have your SSH keys configured, \nbefore you proceed with the process.\n${NORMAL}"
     echo -e "${MENU}You can configure your keys using:${NORMAL}"
-    echo -e "${NUMBER}    ssh-agent bash}"
-    echo -e "${NUMBER}   ssh-add pathTOyourKey/keyName.pem}"
+    echo -e "${NUMBER}    ssh-agent bash${NORMAL}"
+    echo -e "${NUMBER}    ssh-add pathTOyourKey/keyName.pem\n${NORMAL}"
     echo -e "${RED_TEXT}(The key must have special permissions (400 or 600), use chmod for that.${NORMAL}"
     
 }
