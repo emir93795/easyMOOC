@@ -1,6 +1,7 @@
 #!/bin/bash
 #canvasInstallV2. ATT!! This will only work in Amazon Linux AMI 2014.09.1 (HVM). 
 #IT IS NOT COMPLETELY AUTOMATED BY NOW.
+
 yum update -y
 
 yum install -y gcc zlib-devel mysql-devel httpd openssl-devel gcc-c++ curl-devel
@@ -47,6 +48,7 @@ cd /var/www/canvas
 gem uninstall bundler -v 1.7.4
 gem install bundler -v 1.6.0
 yum install -y /usr/include/libpq-fe.h
+gem install execjs
 
 chown -R ec2-user /var/www/canvas
 bundle update
@@ -76,6 +78,17 @@ npm install lodash
 npm install autoprefixer
 npm install
 
-
 #file generation
 bundle exec rake canvas:compile_assets
+
+echo '<VirtualHost *:80>
+      ServerName 54.94.164.45
+      DocumentRoot /var/www/canvas/public
+      <Directory /var/www/canvas/public>
+         # This relaxes Apache security settings.
+         AllowOverride all
+         # MultiViews must be turned off.
+         Options -MultiViews
+         #Require all granted
+      </Directory>
+   </VirtualHost>' /etc/httpd/conf/httpd.conf
