@@ -50,7 +50,7 @@
         Name: MoodleServer
   
   - name: Adding server to inventory
-    local_action: shell sudo sh -c "echo '[MoodleServer]\n{{item.public_ip}}' >> hosts" chdir=/etc/ansible/
+    local_action: shell sudo sh -c "echo -e '[MoodleServer]\n{{item.public_ip}}' >> hosts" chdir=/etc/ansible/
     with_items: ec2.instances
     
   - name: Give everyone one minute
