@@ -50,8 +50,7 @@
         Name: MoodleServer
   
   - name: Adding server to inventory
-    action:
-      shell: echo "[MoodleServer]\n{{item.public_ip}}" >> hosts chdir=/etc/ansible/
+    local_action: shell echo "[MoodleServer]\n{{item.public_ip}}" >> hosts chdir=/etc/ansible/
     
   - name: Give everyone one minute
     pause: minutes=1
