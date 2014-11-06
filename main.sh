@@ -211,10 +211,6 @@ while [ opt != '' ]
                 ;;
                 \n)exit;
                 ;;
-                *)clear;
-                option_picked "Pick an option from the menu";
-                menu2;
-                ;;
                 esac
             fi 
         done
