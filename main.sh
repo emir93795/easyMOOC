@@ -154,6 +154,8 @@ function infrastructureSelection(){
                 #                   Moodle" >> hosts'
                 echo 'Working........'
                 sleep 5s
+                exec /usr/bin/ssh-agent $SHELL
+                ssh-add AmazonKeyValue.pem
                 #Installing LAMP environment
                 ansible-playbook LAMPMoodlePlaybook.yml
                 
