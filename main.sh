@@ -157,6 +157,7 @@ function infrastructureSelection(){
                 cd
                 exec /usr/bin/ssh-agent $SHELL
                 cd easyMOOC
+                sudo chmod 600 AmazonKeyValue.pem
                 ssh-add AmazonKeyValue.pem
                 #Installing LAMP environment
                 ansible-playbook LAMPMoodlePlaybook.yml
